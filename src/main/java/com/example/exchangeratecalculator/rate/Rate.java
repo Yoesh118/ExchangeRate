@@ -88,6 +88,7 @@ public class Rate {
     public void setZwlInterbank(Double zwlInterbank) {
         this.zwlInterbank = zwlInterbank;
     }
+    //hie
 
     @Override
     public String toString() {
