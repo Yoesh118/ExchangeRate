@@ -28,12 +28,14 @@ public class RateController {
 
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public Rate submit(@Validated @ModelAttribute("rate")Rate rate,
-                         BindingResult result, ModelMap model, @RequestParam (name ="base_currency_code") String base_currency_code, @RequestParam (name = "pair_currency_code") String pair_currency_code) {
+                         BindingResult result, ModelMap model, @RequestParam (name ="base_currency_code") String base_currency_code, @RequestParam (name = "pair_currency_code") String pair_currency_code, @RequestParam (name = "amount") double amount) {
         String url = String.format("https://tests.voucher.tumai.to/api/v1/rate/"
                 + base_currency_code + "/"
                 + pair_currency_code + "/");
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Rate> response = restTemplate.getForEntity(url, Rate.class);
+      //  double total = amount * rate.getUnit_base_price();
+
         return response.getBody();
     }
 }
