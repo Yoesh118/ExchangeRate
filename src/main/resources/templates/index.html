@@ -103,24 +103,24 @@
 
   <div class="cardCheckout">
     <div class="card">
-      <form method="POST"
-            action=/${base_currency_code}/${pair_currency_code} modelAttribute="rate">
-        <table>
-          <tr>
-            <td><label path="base_currency_code">Convert from:</label></td>
-            <td>
-              <input type="text" path="base_currency_code"/>
-            </td>
-          </tr>
-          <tr>
-            <td><label path="pair_currency_code">Convert to:</label></td>
-            <td><input path="pair_currency_code"/></td>
-          </tr>
-          <tr>
-            <td><input type="submit" value="Submit"/></td>
-          </tr>
-        </table>
-      </form>
+        <form method="POST"
+              action=/index modelAttribute="rate">
+            <table>
+                <tr>
+                    <td><label>Convert from:</label></td>
+                    <td>
+                        <input type="text" th:name="base_currency_code"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Convert to:</label></td>
+                    <td><input type="text" th:name="pair_currency_code"/></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Submit"/></td>
+                </tr>
+            </table>
+        </form>
     </div>
   </div>
 

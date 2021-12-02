@@ -19,15 +19,6 @@ public class RateController {
         return builder.build();
     }
 
-@GetMapping(path = "/r")
-public Rate getRates(){
-    String url = String.format("https://tests.voucher.tumai.to/api/v1/rate/ZAR/USD/");
-    RestTemplate restTemplate = new RestTemplate();
-    ResponseEntity<Rate> response = restTemplate.getForEntity(url, Rate.class);
-    return response.getBody();
-}
-
-
     @RequestMapping(value = "/page", method = RequestMethod.GET)
     @ResponseBody
     public ModelAndView showForm() {
@@ -35,15 +26,7 @@ public Rate getRates(){
         return modelAndView;
     }
 
-    @RequestMapping(value = "/p2", method = RequestMethod.POST)
-    public ModelAndView showF() {
-        ModelAndView modelAndView = new ModelAndView("rH");
-        return modelAndView;
-    }
-
-
-    @RequestMapping(value = "/rH", method = RequestMethod.GET)
-    @ResponseBody
+    @RequestMapping(value = "/index", method = RequestMethod.POST)
     public Rate submit(@Validated @ModelAttribute("rate")Rate rate,
                          BindingResult result, ModelMap model, @RequestParam (name ="base_currency_code") String base_currency_code, @RequestParam (name = "pair_currency_code") String pair_currency_code) {
         String url = String.format("https://tests.voucher.tumai.to/api/v1/rate/"
